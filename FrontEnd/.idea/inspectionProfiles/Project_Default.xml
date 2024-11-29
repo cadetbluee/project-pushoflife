@@ -1,6 +1,43 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
+<<<<<<< HEAD
+    <inspection_tool class="PreviewAnnotationInFunctionWithParameters" enabled="true" level="ERROR" enabled_by_default="true">
+      <option name="composableFile" value="true" />
+      <option name="previewFile" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PreviewApiLevelMustBeValid" enabled="true" level="ERROR" enabled_by_default="true">
+      <option name="composableFile" value="true" />
+      <option name="previewFile" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PreviewDimensionRespectsLimit" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="composableFile" value="true" />
+      <option name="previewFile" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PreviewFontScaleMustBeGreaterThanZero" enabled="true" level="ERROR" enabled_by_default="true">
+      <option name="composableFile" value="true" />
+      <option name="previewFile" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PreviewMultipleParameterProviders" enabled="true" level="ERROR" enabled_by_default="true">
+      <option name="composableFile" value="true" />
+      <option name="previewFile" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PreviewMustBeTopLevelFunction" enabled="true" level="ERROR" enabled_by_default="true">
+      <option name="composableFile" value="true" />
+      <option name="previewFile" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PreviewNeedsComposableAnnotation" enabled="true" level="ERROR" enabled_by_default="true">
+      <option name="composableFile" value="true" />
+      <option name="previewFile" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PreviewNotSupportedInUnitTestFiles" enabled="true" level="ERROR" enabled_by_default="true">
+      <option name="composableFile" value="true" />
+      <option name="previewFile" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PreviewPickerAnnotation" enabled="true" level="ERROR" enabled_by_default="true">
+      <option name="composableFile" value="true" />
+      <option name="previewFile" value="true" />
+=======
     <inspection_tool class="ComposePreviewDimensionRespectsLimit" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="composableFile" value="true" />
     </inspection_tool>
@@ -39,6 +76,7 @@
     </inspection_tool>
     <inspection_tool class="PreviewPickerAnnotation" enabled="true" level="ERROR" enabled_by_default="true">
       <option name="composableFile" value="true" />
+>>>>>>> d27e35014e48114e47f04a31ca5e4001248ea9eb
     </inspection_tool>
   </profile>
 </component>

@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.pushoflife">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.BODY_SENSORS"/>
+    <uses-permission android:name="android.permission.BODY_SENSORS" />
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
-
-    <uses-feature android:name="android.hardware.sensor.heartbeat" android:required="true"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="com.google.android.gms.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="com.google.android.gms.permission.BLUETOOTH_CONNECT" />
+    <uses-feature android:name="android.hardware.sensor.heartbeat" android:required="false"/>
     <uses-feature android:name="android.hardware.type.watch" />
 
     <application
@@ -13,38 +20,82 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.DeviceDefault">
+        android:theme="@style/Theme.PushOfLife">
+        <meta-data
+            android:name="com.skt.tmap"
+            android:value="${T_MAP_KEY}" />
+        <receiver
+            android:name=".BootReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
         <uses-library
             android:name="com.google.android.wearable"
             android:required="true" />
 
-        <!--
-               Set to true if your app is Standalone, that is, it does not require the handheld
-               app to run.
-        -->
         <meta-data
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:taskAffinity=""
+            android:launchMode="singleTask"
             android:theme="@style/MainActivityTheme.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.aedLocation.AedLocationActivity"></activity>
         <activity
-            android:name=".CPRGuideActivity"
-            android:label="CPR Guide"
-            android:taskAffinity=""
+            android:name=".FirstActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CprWaitingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SecondActivity"
             android:launchMode="singleTask"
+            android:exported="true" />
+
+        <activity
+            android:name=".CprGuideActivity"
+            android:exported="true"/>
+        <service
+            android:name=".network.WatchListenerService"
             android:exported="true">
-            <!-- 인텐트 필터 추가 (필요한 경우) -->
-        </activity>
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.example.pushoflife.CprTileService"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:label="@string/app_name"
+            android:description="@string/app_description"
+            android:exported="true"
+            android:permission="com.google.android.wearable.permission.BIND_TILE_PROVIDER">
+
+            <intent-filter>
+                <action android:name="androidx.wear.tiles.action.BIND_TILE_PROVIDER" />
+            </intent-filter>
+
+            <!-- 타일 미리보기 이미지 -->
+            <meta-data
+                android:name="androidx.wear.tiles.PREVIEW"
+                android:resource="@drawable/ic_launcher_foreground" />
+        </service>
+        <service
+            android:name=".SensorForegroundService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="health" />
     </application>
 
 </manifest>

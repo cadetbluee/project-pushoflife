@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">192.168.31.146</domain> <!-- 허용할 IP 또는 도메인 -->
+        <domain includeSubdomains="true">192.168.31.222</domain> <!-- 허용할 IP 또는 도메인 -->
     </domain-config>
 </network-security-config>

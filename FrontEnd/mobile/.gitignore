@@ -1,1 +1,5 @@
 /build
+FrontEnd/mobile/.idea/
+gradle.properties
+
+/src/google-services.json

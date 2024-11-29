@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="mobile">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-10-21T07:54:21.791562100Z">
+        <DropdownSelection timestamp="2024-11-11T04:06:54.284635300Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\SSAFY\.android\avd\Galaxy_S20_API_VanillaIceCream.avd" />
+              <DeviceId pluginId="PhysicalDevice" identifier="serial=RFAX51HWGKJ" />
             </handle>
           </Target>
         </DropdownSelection>
@@ -15,10 +15,32 @@
       </SelectionState>
       <SelectionState runConfigName="wear">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-10-21T07:53:20.348228400Z">
+        <DropdownSelection timestamp="2024-11-12T03:03:04.404587800Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\SSAFY\.android\avd\Galaxy_S20_API_VanillaIceCream.avd" />
+              <DeviceId pluginId="Default" identifier="serial=192.168.137.202:36177;connection=727ae742" />
+            </handle>
+          </Target>
+        </DropdownSelection>
+        <DialogSelection />
+      </SelectionState>
+      <SelectionState runConfigName="wear">
+        <option name="selectionMode" value="DROPDOWN" />
+        <DropdownSelection timestamp="2024-11-12T03:03:04.404587800Z">
+          <Target type="DEFAULT_BOOT">
+            <handle>
+              <DeviceId pluginId="Default" identifier="serial=192.168.137.202:36177;connection=727ae742" />
+            </handle>
+          </Target>
+        </DropdownSelection>
+        <DialogSelection />
+      </SelectionState>
+      <SelectionState runConfigName="wear">
+        <option name="selectionMode" value="DROPDOWN" />
+        <DropdownSelection timestamp="2024-11-12T03:03:04.404587800Z">
+          <Target type="DEFAULT_BOOT">
+            <handle>
+              <DeviceId pluginId="Default" identifier="serial=192.168.137.202:36177;connection=727ae742" />
             </handle>
           </Target>
         </DropdownSelection>

@@ -1,12 +1,9 @@
 pluginManagement {
     repositories {
-        google {
-            content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
-            }
+        flatDir {
+            dirs("libs")
         }
+        google()
         mavenCentral()
         gradlePluginPortal()
     }
@@ -18,8 +15,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-
 rootProject.name = "PushOfLife"
 include(":mobile")
 include(":wear")
- 

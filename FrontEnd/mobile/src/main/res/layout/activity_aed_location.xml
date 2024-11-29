@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- 상단바 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- 뒤로가기 버튼 -->
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/backicon"
+            android:contentDescription="뒤로 가기"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!-- 타이틀 텍스트 -->
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AED 위치"
+            android:textSize="24sp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:letterSpacing="-0.02"
+            android:textAlignment="center"
+            app:layout_constraintStart_toEndOf="@id/backButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingEnd="40dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- 지도 뷰 -->
+    <FrameLayout
+        android:id="@+id/tmapViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- 현재 위치 갱신 버튼 (지도 뷰 위에 렌더링) -->
+    <ImageButton
+        android:id="@+id/currentLocationButton"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/location_update"
+        android:contentDescription="현재 위치로 이동"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

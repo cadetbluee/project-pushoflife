@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rounded_bottom_sheet_background"
+    >
+
+<!--    <ImageView-->
+<!--        android:id="@+id/upIndicator"-->
+<!--        android:layout_width="20dp"-->
+<!--        android:layout_height="28dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:src="@drawable/up"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"         />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="18dp"
+        tools:ignore="MissingConstraints">
+
+        <!-- Place and Address -->
+        <TextView
+            android:id="@+id/placeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Place"
+            android:textSize="14sp"
+            android:paddingBottom="3dp" />
+        <TextView
+            android:id="@+id/addressTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:textSize="12sp"
+            android:paddingBottom="3dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Location and Number -->
+        <TextView
+            android:id="@+id/locationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            android:textSize="10sp"
+            android:layout_marginBottom="5dp" />
+        <TextView
+            android:id="@+id/numberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number"
+            android:textSize="10sp"
+            android:layout_marginBottom="8dp"
+            />
+
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0.5dp"-->
+<!--            android:background="@android:color/darker_gray"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            />-->
+
+<!--        &lt;!&ndash; Mon and Tue &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:paddingTop="3dp">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/monTimeTextView"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textSize="8sp" />-->
+
+<!--            <Space-->
+<!--                android:layout_width="16dp"-->
+<!--                android:layout_height="wrap_content" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tueTimeTextView"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textSize="8sp" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Wed and Thu &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:paddingTop="3dp">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/wedTimeTextView"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textSize="8sp" />-->
+
+<!--            <Space-->
+<!--                android:layout_width="16dp"-->
+<!--                android:layout_height="wrap_content" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/thuTimeTextView"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textSize="8sp" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Fri and Sat &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:paddingTop="3dp">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/friTimeTextView"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textSize="8sp" />-->
+
+<!--            <Space-->
+<!--                android:layout_width="16dp"-->
+<!--                android:layout_height="wrap_content" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/satTimeTextView"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textSize="8sp" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Sun and Hol &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:paddingTop="3dp">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/sunTimeTextView"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textSize="8sp"-->
+<!--                />-->
+
+<!--            <Space-->
+<!--                android:layout_width="16dp"-->
+<!--                android:layout_height="wrap_content" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/holTimeTextView"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textSize="8sp" />-->
+<!--        </LinearLayout>-->
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

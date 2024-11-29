@@ -1,0 +1,46 @@
+version: '3'
+services:  
+  spring-container:
+    image: pol/spring
+    container_name: spring-container
+    ports:
+      - "127.0.0.1:8080:8080"
+    networks:
+      - service_local
+    environment:
+      DB_CONNECTION: ${DB_CONNECTION}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      DB_DOMAIN: ${DB_DOMAIN}
+      DOMAIN_PROPERTIES: ${DOMAIN_PROPERTIES}
+      REDIS_CONNECTION: ${REDIS_CONNECTION}
+      REDIS_PORT: ${REDIS_PORT}
+      KAFKA_SERVER: ${KAFKA_SERVER}
+      TOPIC_NAME: ${TOPIC_NAME}
+      SERVICE_KEY: ${SERVICE_KEY}
+      API_URL: ${API_URL}
+      MONGODB_SERVER: ${MONGODB_SERVER}
+      MONGODB_DATABASE: ${MONGODB_DATABASE}
+      SPRING_SWAGGER_SERVER: ${SPRING_SWAGGER_SERVER}
+
+  webflux-container:
+    image: pol/notify
+    container_name: webflux-container
+    ports:
+      - "127.0.0.1:8079:8080"
+    networks:
+      - service_local
+    volumes:
+      - /home/ubuntu/service/data/webflux/firebaseKey:/firebaseKey
+    environment:
+      TOPIC_NAME: ${TOPIC_NAME}
+      KAFKA_SERVER: ${KAFKA_SERVER}
+      TEST_FCMKEY: ${TEST_FCMKEY}
+      FIREBASE_KEYPATH: ${FIREBASE_KEYPATH}
+      NOTIFICATION_PORT: ${NOTIFICATION_PORT}
+      
+      
+networks:
+  service_local:
+    external: true

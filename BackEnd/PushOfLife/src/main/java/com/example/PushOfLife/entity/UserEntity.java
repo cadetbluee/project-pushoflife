@@ -1,11 +1,13 @@
 package com.example.PushOfLife.entity;
 
 import com.example.PushOfLife.dto.user.UpdateRequestDTO;
+import com.example.PushOfLife.dto.user.UpdateResponseDTO;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Timestamp;
@@ -29,6 +31,9 @@ public class UserEntity {
     @Column(name = "user_password")
     private String password;
 
+    @Column(name = "user_birthday")
+    private String userBirthday;
+
     @Column(name = "user_gender")
     private String userGender;
 
@@ -50,41 +55,29 @@ public class UserEntity {
     @Column(name = "created_at", nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp createdAt;
 
-    @Column(name = "profile_url")
-    private String profileUrl;
-
-    public void updateInfo(UpdateRequestDTO updateRequest, String profileUrl, String encodedPassword){
-        if (encodedPassword != null){
+    public void updateInfo(UpdateRequestDTO updateRequest, String encodedPassword) {
+        if (encodedPassword != null) {
             this.password = encodedPassword;
         }
 
-        if (updateRequest.getUserName()!=null){
+        if (updateRequest.getUserName() != null) {
             this.userName = updateRequest.getUserName();
         }
 
-        if(updateRequest.getUserGender()!=null){
+        if (updateRequest.getUserGender() != null) {
             this.userGender = updateRequest.getUserGender();
         }
 
-        if(updateRequest.getUserPhone()!=null){
-            this.userPhone = updateRequest.getUserPhone();
-        }
-
-        if(updateRequest.getUserProtector()!=null){
+        if (updateRequest.getUserProtector() != null) {
             this.userProtector = updateRequest.getUserProtector();
         }
 
-        if(updateRequest.getUserFcm()!=null){
-            this.userFcm = updateRequest.getUserFcm();
-        }
-
-        if(updateRequest.getUserDisease()!=null){
+        if (updateRequest.getUserDisease() != null) {
             this.userDisease = updateRequest.getUserDisease();
         }
-
-        if (profileUrl != null){
-            this.profileUrl = profileUrl;
-        }
     }
+
+    @OneToMany(mappedBy = "user")
+    private List<ReservationEntity> reservation;
 
 }

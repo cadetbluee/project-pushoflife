@@ -1,0 +1,118 @@
+version: '3'
+
+services:
+  # config
+  config1:
+    image: mongo
+    container_name: config1
+    restart: always
+    command: mongod --configsvr --replSet configReplica --port 27017 --dbpath /data/db
+    ports:
+      - 127.0.0.1:10011:27017
+    volumes:
+      - /home/ubuntu/mongoShard/config1:/data/db
+    networks : 
+      - service_local
+
+  config2:
+    image: mongo
+    container_name: config2
+    restart: always
+    command: mongod --configsvr --replSet configReplica --port 27017 --dbpath /data/db
+    ports:
+      - 127.0.0.1:10012:27017
+    volumes:
+      - /home/ubuntu/mongoShard/config2:/data/db
+    networks : 
+      - service_local
+
+  config3:
+    image: mongo
+    container_name: config3
+    restart: always
+    command: mongod --configsvr --replSet configReplica --port 27017 --dbpath /data/db
+    ports:
+      - 127.0.0.1:10013:27017
+    volumes:
+      - /home/ubuntu/mongoShard/config3:/data/db
+    networks : 
+      - service_local
+
+  # shard1Replica
+  shard1:
+    image:  mongo
+    container_name: shard1
+    restart: always
+    command: mongod --shardsvr --replSet shard1Replica --port 27017 --dbpath /data/db
+    ports:
+      - 127.0.0.1:10021:27017
+    volumes:
+      - /home/ubuntu/mongoShard/shard1:/data/db
+    networks : 
+      - service_local
+      
+  shard2:
+    image: mongo
+    container_name: shard2
+    restart: always
+    command: mongod --shardsvr --replSet shard1Replica --port 27017 --dbpath /data/db
+    ports:
+      - 127.0.0.1:10022:27017
+    volumes:
+      - /home/ubuntu/mongoShard/shard2:/data/db
+    networks :  
+      - service_local
+
+  shard3:
+    image: mongo
+    container_name: shard3
+    restart: always
+    command: mongod --shardsvr --replSet shard1Replica --port 27017 --dbpath /data/db
+    ports:
+      - 127.0.0.1:10023:27017
+    volumes:
+      - /home/ubuntu/mongoShard/shard3:/data/db
+    networks : 
+      - service_local
+      
+  # shard2Replica
+  shard4:
+    image:  mongo
+    container_name: shard4
+    restart: always
+    command: mongod --shardsvr --replSet shard2Replica --port 27017 --dbpath /data/db
+    ports:
+      - 127.0.0.1:10024:27017
+    volumes:
+      - /home/ubuntu/mongoShard/shard4:/data/db
+    networks : 
+      - service_local
+      
+  shard5:
+    image: mongo
+    container_name: shard5
+    restart: always
+    command: mongod --shardsvr --replSet shard2Replica --port 27017 --dbpath /data/db
+    ports:
+      - 127.0.0.1:10025:27017
+    volumes:
+      - /home/ubuntu/mongoShard/shard5:/data/db
+    networks :  
+      - service_local
+
+  shard6:
+    image: mongo
+    container_name: shard6
+    restart: always
+    command: mongod --shardsvr --replSet shard2Replica --port 27017 --dbpath /data/db
+    ports:
+      - 127.0.0.1:10026:27017
+    volumes:
+      - /home/ubuntu/mongoShard/shard6:/data/db
+    networks : 
+      - service_local
+
+networks:
+  service_local:
+    external: true
+    

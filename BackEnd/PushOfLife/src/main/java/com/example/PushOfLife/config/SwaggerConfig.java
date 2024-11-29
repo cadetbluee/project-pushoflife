@@ -6,11 +6,20 @@ import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
+
+import java.beans.BeanProperty;
+import java.util.Collections;
+
+import io.swagger.v3.oas.models.servers.Server;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SwaggerConfig {
+    @Value("${spring.swagger.server}")
+        private String serverUrl;
+
     @Bean
     public OpenAPI customOpenAPI() {
 
@@ -29,8 +38,10 @@ public class SwaggerConfig {
 
         return new OpenAPI().components(new Components())
                 .info(info)
+                .servers(Collections.singletonList(new Server().url(serverUrl).description("API Server")))
                 .addSecurityItem(securityRequirement)
                 .components(components);
 
     }
+
 }
